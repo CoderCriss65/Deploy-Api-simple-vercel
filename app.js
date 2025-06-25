@@ -9,7 +9,37 @@ const PORT = 80;
 app.use(express.json());
 app.use(cors());
 
-const DB_PATH = path.join(__dirname, "db.json");
+// Detecta si está en Vercel: variable de entorno VERCEL
+const isVercel = process.env.VERCEL === "1" || !!process.env.VERCEL_URL;
+const DB_FILENAME = "db.json";
+const DB_PATH = isVercel
+  ? path.join("/tmp", DB_FILENAME) // En Vercel, usa /tmp
+  : path.join(__dirname, DB_FILENAME); // Local, usa la raíz del proyecto
+
+// Si está en Vercel y el archivo no existe en /tmp, cópialo desde el deploy
+if (isVercel && !fs.existsSync(DB_PATH)) {
+  const src = path.join(__dirname, DB_FILENAME);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, DB_PATH);
+  } else {
+    // Si no existe el archivo en el deploy, inicializa vacío
+    fs.writeFileSync(DB_PATH, JSON.stringify({
+      empleados: [],
+      usuarios: [],
+      productos: [],
+      proveedores: [],
+      categorias: [],
+      ventas: [],
+      inventario: [],
+      pedidos: [],
+      departamentos: [],
+      proyectos: [],
+      beneficios: [],
+      sucursales: [],
+      equipos: []
+    }, null, 2), "utf-8");
+  }
+}
 
 function getDB() {
   const data = fs.readFileSync(DB_PATH, "utf-8");
