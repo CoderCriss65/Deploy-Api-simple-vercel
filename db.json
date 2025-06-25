@@ -1,0 +1,167 @@
+{
+  "empleados": [
+    {
+      "id": "1",
+      "documento": "123456789",
+      "nombres": "Juan",
+      "apellidos": "Pérez",
+      "fechanacimiento": "1990-05-15T00:00:00.000Z",
+      "telefono": "3001234567",
+      "correo": "juan.perez@email.com",
+      "direccion": "Calle 10 #20-30",
+      "ciudad": "Bogotá",
+      "contrato": "Planta",
+      "jornada": "Mañana"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "admin",
+      "correo": "admin@empresa.com",
+      "username": "admin",
+      "password": "admin123"
+    },
+    {
+      "nombre": "admin2",
+      "correo": "admi2n@empresa2.com",
+      "username": "admin2",
+      "password": "admin1232",
+      "id": "2"
+    }
+  ],
+  "productos": [
+    {
+      "id": "1",
+      "codigo_barras": "7701234567890",
+      "nombre": "Pepsi 500ml",
+      "descripcion": "Bebida refrescante",
+      "precio_compra": 2000,
+      "precio_venta": 3500,
+      "stock": 100,
+      "stock_minimo": 10,
+      "unidad_de_medida": "ml",
+      "valorunidadmedida": 500,
+      "imagen": "/uploads/pepsi500.png",
+      "estado": "activo"
+    }
+  ],
+  "proveedores": [
+    {
+      "id": "1",
+      "nombre": "Bebidas S.A.",
+      "nit": "900100200-3",
+      "telefono": "6015551234",
+      "correo": "ventas@bebidas.com",
+      "direccion": "Avenida 68 #30-45",
+      "ciudad": "Bogotá",
+      "productos_principales": "Bebidas"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nombre": "Bebidas",
+      "descripcion": "Refrescos y jugos"
+    }
+  ],
+  "ventas": [
+    {
+      "id": "V-100",
+      "fecha": "2025-06-24T15:00:00.000Z",
+      "cliente_id": "C1",
+      "empleado_id": "1",
+      "total": 7000,
+      "metodo_pago": "Efectivo",
+      "detalles": [
+        {
+          "producto_id": "1",
+          "cantidad": 2,
+          "precio_unitario": 3500,
+          "subtotal": 7000
+        }
+      ]
+    }
+  ],
+  "inventario": [
+    {
+      "id": "INV-1",
+      "producto_id": "1",
+      "cantidad": 100,
+      "ubicacion": "Estantería A1",
+      "fecha_actualizacion": "2025-06-24T12:00:00.000Z"
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "PED-100",
+      "proveedor_id": "1",
+      "fecha_pedido": "2025-06-20T10:00:00.000Z",
+      "fecha_entrega_esperada": "2025-06-25T15:00:00.000Z",
+      "estado": "En tránsito",
+      "total": 200000,
+      "items": [
+        {
+          "producto_id": "1",
+          "cantidad": 80,
+          "precio_unitario": 2000
+        }
+      ]
+    }
+  ],
+  "departamentos": [
+    {
+      "id": "1",
+      "nombre": "Ventas",
+      "jefe_id": "1",
+      "presupuesto": 10000000,
+      "ubicacion": "Piso 2"
+    }
+  ],
+  "proyectos": [
+    {
+      "id": "PROY-1",
+      "nombre": "Implementación POS",
+      "descripcion": "Instalación del sistema POS en la sucursal principal",
+      "fecha_inicio": "2025-06-01T00:00:00.000Z",
+      "fecha_fin_estimada": "2025-08-01T00:00:00.000Z",
+      "presupuesto": 25000000,
+      "responsable_id": "1"
+    }
+  ],
+  "beneficios": [
+    {
+      "id": "B-01",
+      "empleado_id": "1",
+      "tipo": "Seguro médico",
+      "proveedor": "Sura",
+      "cobertura": "Individual",
+      "fecha_inicio": "2025-01-01T00:00:00.000Z"
+    }
+  ],
+  "sucursales": [
+    {
+      "id": "SUC-1",
+      "nombre": "Principal",
+      "direccion": "Calle 10 #20-30",
+      "ciudad": "Bogotá",
+      "telefono": "6011234567",
+      "gerente_id": "1",
+      "area_m2": 500,
+      "fecha_apertura": "2020-01-15T00:00:00.000Z"
+    }
+  ],
+  "equipos": [
+    {
+      "id": "EQ-1",
+      "tipo": "Computador",
+      "marca": "HP",
+      "modelo": "EliteDesk 800",
+      "serial": "HP12345678",
+      "sucursal_id": "SUC-1",
+      "empleado_asignado": "1",
+      "fecha_adquisicion": "2023-01-20T00:00:00.000Z",
+      "valor": 3000000
+    }
+  ]
+}
